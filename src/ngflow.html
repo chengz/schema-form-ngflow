@@ -3,14 +3,11 @@
   <div flow-init flow-files-submitted="$flow.upload()"
      flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
      flow-drop flow-drop-enabled="form.flowOptions.dropEnabled" 
-     flow-drag-enter="flowClass='flow-drag-enter'" flow-drag-leave="flowClass={}" ng-class="flowClass"
-     flow-file-success="{{form.flowOptions.fileSuccess}}"
+     flow-drag-enter="!!form.flowOptions.dropEnabled ? flowClass='flow-drag-enter' : flowClass={}" flow-drag-leave="flowClass={}" ng-class="flowClass"
+     flow-file-success="form.flowOptions.fileSuccess"
      >
-    <div class="img-thumbnail" ng-hide="$flow.files.length">
-      <img ng-show="$$value$$" src="$$value$$.url" />
-      <img ng-hide="$$value$$" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
-    </div>
-    <div >
+    <div class="img-thumbnail" ng-hide="$flow.files.length" ng-init="src=(!!$$value$$ ? $$value$$ : 'data:image/gif;base64,R0lGODdhyACWAOMAAO/v76qqqubm5t3d3bu7u7KystXV1cPDw8zMzAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAyACWAAAE/hDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LB4TC6bz+i0es1uu9/wuHxOr9vv+Lx+z+/7/4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3TAMFBQO4LAUBAQW+K8DCxCoGu73IzSUCwQECAwQBBAIVCMAFCBrRxwDQwQLKvOHV1xbUwQfYEwIHwO3BBBTawu2BA9HGwcMT1b7Vw/Dt3z563xAIrHCQnzsAAf0F6ybhwDdwgAx8OxDQgASN/sKUBWNmwQDIfwBAThRoMYDHCRYJGAhI8eRMf+4OFrgZgCKgaB4PHqg4EoBQbxgBROtlrJu4ofYm0JMQkJk/mOMkTA10Vas1CcakJrXQ1eu/sF4HWhB3NphYlNsmxOWKsWtZtASTdsVb1mhEu3UDX3RLFyVguITzolQKji/GhgXNvhU7OICgsoflJr7Qd2/isgEPGGAruTTjnSZTXw7c1rJpznobf2Y9GYBjxIsJYQbXstfRDJ1luz6t2TDvosSJSpMw4GXG3TtT+hPpEoPJ6R89B7AaUrnolgWwnUQQEKVOAy199mlonPDfr3m/GeUHFjBhAf0SUh28+P12QOIIgDbcPdwgJV+Arf0jnwTwsHOQT/Hs1BcABObjDAcTXhiCOGppKAJI6nnIwQGiKZSViB2YqB+KHtxjjXMsxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSW6UsEADs=')">
+      <img ng-src="{{src}}" />
     </div>
     <div class="img-thumbnail" ng-show="$flow.files.length">
       <img width="200" flow-img="$flow.files[0]" />

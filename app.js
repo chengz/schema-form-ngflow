@@ -9,7 +9,7 @@
 var app = angular.module('app', ['schemaForm-ngflow'])
 .config(['flowFactoryProvider', function (flowFactoryProvider) {
   flowFactoryProvider.defaults = {
-    target: 'upload.php',
+    target: '/schema-form-ngflow/example.html',
     permanentErrors: [404, 500, 501],
     maxChunkRetries: 1,
     chunkRetryInterval: 5000,
@@ -44,8 +44,7 @@ var app = angular.module('app', ['schemaForm-ngflow'])
      {
        key: 'image',
        flowOptions: {
-         dropEnabled: true,
-         target: '/upload',
+         dropEnabled: false,
          fileSuccess: 'uploaded()'
        }
      }
