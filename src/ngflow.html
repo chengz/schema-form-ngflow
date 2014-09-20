@@ -4,6 +4,7 @@
      flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
      flow-drop flow-drop-enabled="form.flowOptions.dropEnabled" 
      flow-drag-enter="flowClass='flow-drag-enter'" flow-drag-leave="flowClass={}" ng-class="flowClass"
+     flow-file-success="{{form.flowOptions.fileSuccess}}"
      >
     <div class="img-thumbnail" ng-hide="$flow.files.length">
       <img ng-show="$$value$$" src="$$value$$.url" />

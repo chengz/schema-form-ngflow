@@ -45,9 +45,13 @@ var app = angular.module('app', ['schemaForm-ngflow'])
        key: 'image',
        flowOptions: {
          dropEnabled: true,
-         target: '/upload'
+         target: '/upload',
+         fileSuccess: 'uploaded()'
        }
      }
   ];
   $scope.model = {};
+  $scope.uploaded = function(){
+    alert('done');
+  };
 });
