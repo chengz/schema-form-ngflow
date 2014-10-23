@@ -28,7 +28,8 @@
     "coverage"
   ],
   "dependencies": {
-    "ng-flow": ">= 2.5.1"
+    "ng-flow": ">= 2.5.1",
+    "angular-translate": ">= 2.3.0"
   },
   "devDependencies": {
     "angular-schema-form": ">= 0.7",

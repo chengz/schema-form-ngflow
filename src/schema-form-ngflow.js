@@ -3,7 +3,7 @@ angular.module('schemaForm-ngflow', ['schemaForm', 'flow']).config(
   function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
 
     var ng_flow = function(name, schema, options) {
-    if (schema.type === 'string' && schema.format == 'ngflow') {
+    if (schema.type === 'object' && schema.format == 'ngflow') {
       var f = schemaFormProvider.stdFormObj(name, schema, options);
       f.key  = options.path;
       f.type = 'ngflow';
@@ -12,7 +12,7 @@ angular.module('schemaForm-ngflow', ['schemaForm', 'flow']).config(
     }
   };
 
-    schemaFormProvider.defaults.string.unshift(ng_flow);
+    schemaFormProvider.defaults.object.unshift(ng_flow);
 
   //Add to the bootstrap directive
     schemaFormDecoratorsProvider.addMapping('bootstrapDecorator', 'ngflow',

@@ -6,7 +6,7 @@
  * @name app
  * @type {angular.Module}
  */
-var app = angular.module('app', ['schemaForm-ngflow'])
+var app = angular.module('app', ['pascalprecht.translate', 'schemaForm-ngflow'])
 .config(['flowFactoryProvider', function (flowFactoryProvider) {
   flowFactoryProvider.defaults = {
     target: '/schema-form-ngflow/example.html',
@@ -33,7 +33,7 @@ var app = angular.module('app', ['schemaForm-ngflow'])
       },
       image: {
         title: 'Image',
-        type: 'string',
+        type: 'object',
         format: 'ngflow',
         description: 'Only jpg is allowd'
       }
@@ -52,5 +52,8 @@ var app = angular.module('app', ['schemaForm-ngflow'])
   $scope.model = {};
   $scope.uploaded = function(){
     alert('done');
+  };
+  $scope.onSubmit = function(){
+    console.log('submit');
   };
 });
